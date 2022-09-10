@@ -1,0 +1,153 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: MA8502 - Numerical solutions of Partial Differential Equations
+logo: logo.png
+author: André Massing
+email: andre.massing@ntnu.no
+#description: >- # this means to ignore newlines until "baseurl:"
+
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    # - html_admonition
+    # - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+    - tasklist
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: ma8502_NumPDE.tex
+
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
+  # path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+
+sphinx:
+  extra_extensions: 
+    # Make sure to install corresponding python packages, e.g. via `pip install sphinx-proof`
+    - sphinx_proof
+    - sphinx_togglebutton
+    # - sphinx_exercise
+    # - sphinx_copybutton
+  config:
+    bibtex_reference_style: author_year
+    latex_elements:
+        preamble:  
+          \usepackage{amsmath}
+        preamble:  
+          \usepackage{notation}
+          # \DeclareMathOperator{\Div}{div}
+          # \DeclareMathOperator{\Grad}{grad}
+          # \DeclareMathOperator{\Curl}{curl}
+          # \DeclareMathOperator{\Rot}{rot}
+          # \DeclareMathOperator{\ord}{ord}
+          # \DeclareMathOperator{\Kern}{ker}
+          # \DeclareMathOperator{\Image}{im}
+          # \DeclareMathOperator{\spann}{span}
+          # \DeclareMathOperator{\dist}{dist}
+          # \DeclareMathOperator{\diam}{diam}
+          # \DeclareMathOperator{\sig}{sig}
+          # \newcommand{\VV}{\mathbb{V}}
+          # \newcommand{\dx}{\,\mathrm{d}x}
+          # \newcommand{\dy}{\,\mathrm{d}y}
+          # \newcommand{\ds}{\,\mathrm{d}s}
+          # \newcommand{\dt}{\,\mathrm{d}t}
+          # \newcommand{\dS}{\,\mathrm{d}S}
+          # \newcommand{\dV}{\,\mathrm{d}V}
+          # \newcommand{\dX}{\,\mathrm{d}X}
+          # \newcommand{\dY}{\,\mathrm{d}Y}
+          # \newcommand{\dE}{\,\mathrm{d}E}
+          # \newcommand{\dK}{\,\mathrm{d}K}
+          # \newcommand{\dM}{\,\mathrm{d}M}
+          # \newcommand{\dGamma}{\,\mathrm{d} \Gamma}
+          # \newcommand{\cd}{\mathrm{cd}}
+          # \newcommand{\onehalf}{\frac{1}{2}}
+          # \newcommand{\bfP}{\boldsymbol P}
+          # \newcommand{\bfx}{\boldsymbol x}
+          # \newcommand{\bfa}{\boldsymbol a}
+          # \newcommand{\bfu}{\boldsymbol u}
+          # \newcommand{\bfv}{\boldsymbol v}
+          # \newcommand{\bfe}{\boldsymbol e}
+          # \newcommand{\bfg}{\boldsymbol g}
+          # \newcommand{\bfb}{\boldsymbol b}
+          # \newcommand{\bff}{\boldsymbol f}
+          # \newcommand{\bfp}{\boldsymbol p}
+          # \newcommand{\bft}{\boldsymbol t}
+          # \newcommand{\bfj}{\boldsymbol j}
+          # \newcommand{\bfB}{\boldsymbol B}
+          # \newcommand{\bfV}{\boldsymbol V}
+          # \newcommand{\bfE}{\boldsymbol E}
+          # \newcommand{\bfK}{\boldsymbol K}
+          # \newcommand{\mcA}{\mathcal{A}}
+          # \newcommand{\mcK}{\mathcal{K}}
+          # \newcommand{\mcT}{\mathcal{T}}
+    latex_additional_files : ["notation.sty"]
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    mathjax3_config:
+      tex:
+        macros:
+          "RR" : ["\\mathbb{R}"]
+          "NN" : ["\\mathbb{N}"]
+          "VV" : ["\\mathbb{V}"]
+          "CC" : ["\\mathbb{C}"]
+          "floor": ["\\lfloor#1\\rfloor", 1]
+          "mcA" : ["\\mathcal{A}"]
+          "mcL" : ["\\mathcal{L}"]
+          "mcT" : ["\\mathcal{T}"]
+          "cd" : ["\\mathrm{cd}"]
+          "onehalf" : ["\\frac{1}{2}"]
+          "bfP" : ["\\boldsymbol{P}"]
+          "bfx" : ["\\boldsymbol{x}"]
+          "bfa" : ["\\boldsymbol{a}"]
+          "bfu" : ["\\boldsymbol{u}"]
+          "bfv" : ["\\boldsymbol{v}"]
+          "bfe" : ["\\boldsymbol{e}"]
+          "bfg" : ["\\boldsymbol{g}"]
+          "bfb" : ["\\boldsymbol{b}"]
+          "bff" : ["\\boldsymbol{f}"]
+          "bfp" : ["\\boldsymbol{p}"]
+          "bft" : ["\\boldsymbol{t}"]
+          "bfj" : ["\\boldsymbol{j}"]
+          "bfB" : ["\\boldsymbol{B}"]
+          "bfV" : ["\\boldsymbol{V}"]
+          "bfE" : ["\\boldsymbol{E}"]
+          "bfB" : ["\\boldsymbol{B}"]
+          "bfK" : ["\\boldsymbol{K}"]
+          "dx" : ["\\,\\mathrm{d}x"]
+          "dy" : ["\\,\\mathrm{d}y"]
+          "ds" : ["\\,\\mathrm{d}s"]
+          "dt" : ["\\,\\mathrm{d}t"]
+          "dS" : ["\\,\\mathrm{d}S"]
+          "dV" : ["\\,\\mathrm{d}V"]
+          "dX" : ["\\,\\mathrm{d}X"]
+          "dY" : ["\\,\\mathrm{d}Y"]
+          "dE" : ["\\,\\mathrm{d}E"]
+          "dK" : ["\\,\\mathrm{d}K"]
+          "dM" : ["\\,\\mathrm{d}M"]
+          "dGamma" : ["\\,\\mathrm{d} \\Gamma"]
+          "spann" : ["\\mathrm{span}"]
+
+bibtex_bibfiles:
+  - references.bib

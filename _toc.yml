@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: lecture_01
+  #root: root
+chapters:
+- file: chapter_01_preliminaries/functional_analysis.md
+- file: chapter_01_preliminaries/function_spaces
+- file: chapter_02_crash_course_fem/galerkins_method
+- file: references
+   #- file: chapter_02_crash_course_fem/function_spaces
