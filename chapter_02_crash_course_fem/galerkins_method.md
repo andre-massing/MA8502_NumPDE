@@ -201,8 +201,8 @@ To this end, we see that
 :label: eq-ceas-lemma-proof
 \alpha \| u - u_h \|^2 &\leqslant a(u - u_h, u - u_h)  \\
                        &= a(u-u_h, u - v_h + v_h - u_h)  \\ 
-                       &= a(u-u_h,  u - v_h) + a_(u-u_h, v_h - u_h) \\
-                       &\leqslant C_a \| u - u_h \| \| u - u_h\|
+                       &= a(u-u_h,  u - v_h) + \underbrace{a(u-u_h, v_h - u_h)}_{= 0} \\
+                       &\leqslant C_a \| u - u_h \| \| u - v_h\|
 ```
 Assuming that $\| u - u_h \| \neq 0$ (otherwise 
 {eq}`eq-ceas-lemma-alt` is trivially satisfied), we can divide {eq}`eq-ceas-lemma-proof` by $\| u - u_h \|$ and 

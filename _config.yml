@@ -49,8 +49,8 @@ sphinx:
     # Make sure to install corresponding python packages, e.g. via `pip install sphinx-proof`
     - sphinx_proof
     - sphinx_togglebutton
-    # - sphinx_exercise
-    # - sphinx_copybutton
+    - sphinx_exercise
+    - sphinx_copybutton
   config:
     bibtex_reference_style: author_year
     latex_elements:

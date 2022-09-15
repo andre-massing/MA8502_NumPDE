@@ -13,15 +13,16 @@ or
   You need to use ```{math} directive which usually wraps math formula into an combined equation/split environment.
   To avoid this e.g. if you still want to use align instead, you need to set the :nowrap: True option.
 * Remember to include 
- > ```bibliograpgy
+ > ```bibliography
  > ```
  if you have citations, otherwise they won't be found.
 
 
-# Things that need to be fixed
+# Things that need to be fixed/found out
 
 * Set up building tasks for jupyter book builds (DONE)
 * Set up snippets for myst/md files
 * Labels in math environment and references to them are really annoying/not working!
 * `$$` do not work in LaTeX output 
 * Find out how you can define new admonitions
+* How can we add verbatim text?
