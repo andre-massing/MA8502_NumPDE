@@ -18,6 +18,7 @@ or
  if you have citations, otherwise they won't be found.
 
 
+
 # Things that need to be fixed/found out
 
 * Set up building tasks for jupyter book builds (DONE)
@@ -26,3 +27,6 @@ or
 * `$$` do not work in LaTeX output 
 * Find out how you can define new admonitions
 * How can we add verbatim text?
+* The :dropdown: role does not work in proofs
+* The ```prf:assumption``` from sphinx-proof is not available in myst, gives error
+> WARNING: Unknown directive type "prf:assumption".
