@@ -11,7 +11,7 @@ Lebesque integration theory provides a powerful generalization
 of the Riemann integral which makes sure that the set of so-called
 Lebesque-integrable functions turns into a Banach space when
 endowed with a suitable norm. Nowdays, in most standard text books,
-Lebesque integration theory is presented a part of the
+Lebesque integration theory is presented as part of the
 curriculum on *Measure and Integration theory*, see Chapter 9-10 in 
 {cite}`Browder2012` for a quick introduction. 
 To this end, 

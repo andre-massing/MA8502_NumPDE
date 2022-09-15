@@ -113,3 +113,71 @@ and we have that
 ```{prf:proof}
 For a proof, we refer to Section 5.2 in {cite}`Brezis2011`. 
 ```
+
+Later, when we have introduced the concept of weak formulation of partial differential equations, we will make heavily use of the  Lax-Milgram theorem.
+
+````{prf:theorem} Lax-Milgram
+:label: thm-lax-milgram
+Given a Hilbert space $(V,\| \cdot\|)$, a bilinear form
+$a(\cdot, \cdot): V \times V \to \RR$ (or $\CC$), and a linear form 
+$l(\cdot): V \to \RR$ (or $\CC$). Then the problem: Find $u \in V$ such 
+that 
+```{math}
+:label: eq-lax-milgram-problem
+a(u, v) = l(v) \quad \forall v\in V
+```
+possesses solution a solution $u \in V$ if the following assumptions are satisfied.
+1. The linear form $l$ is bounded, i.e. there exists a constant $C_l \geqslant 0$ such that
+    ```{math}
+    :label: eq-lax-milgram-bounded-l
+    | l(v) | \leqslant C_l \| v\| \quad \forall v \in V.
+    ```
+2. The bilinear form $a$ is bounded, i.e. there exists a constant $C_a \geqslant 0$ such that
+    ```{math}
+    :label: eq-lax-milgram-bounded-a
+    | a(v, w) | \leqslant C_a \| v\| \|w\| \quad \forall v,w \in V.
+    ```
+3. The bilinear form $a$ is coercive, i.e. there is a constant $\alpha > 0$ such that
+    ```{math}
+    :label: eq-lax-milgram-coerc
+    a(v, v)  \geqslant \|v\|^2 \quad \forall v \in V.
+    ```
+Moreover, the solution $u$ satisfies the stability (or a priori) estimate
+```{math}
+:label: eq-lax-milgram-stab
+\|u\| \leqslant \dfrac{C_l}{\alpha}
+```
+and is (therefore!) uniquely defined.
+````
+
+````{prf:proof}
+For a complete proof in particular the existence of a solution $u$, we
+refer to the nice presentation in {cite}`Evans2010`.
+Here, we only show to derive {eq}`eq-lax-milgram-stab`
+and uniqueness of $u$.
+
+Assume $u$ solves {eq}`eq-lax-milgram-problem`. Then set $v=u$ and
+successively employ the coercivity of $a$ and boundedness of $l$ to see that
+```{math}
+\alpha \|u\|^2 \leqslant a(u, u) = l(u) \leqslant C_l \|u\|.
+```
+Dividing the previous chain of inequalities by $\alpha$ and $\|u\|$ if $\| u \| \neq 0$
+yields {eq}`eq-lax-milgram-stab`. For $\|u\| = 0$ the stability estimate is trivially satisfied.
+
+If $u_1$ and $u_2$
+both satisfy problem~{eq}`eq-lax-milgram-problem`, then
+thanks to linearity of $a$ in the first slot,
+the difference $u_1-u_2$ satisfies problem~{eq}`eq-lax-milgram-problem` but with $f =  0$
+instead. In that case $C_l = 0$ and thus $0\leqslant\|u_1 - u_2 \| \leqslant \tfrac{0}{\alpha} = 0$, and thus $u_1 = u_2$.
+````
+
+```{prf:remark}
+The {prf:ref}`Lax-Milgram theorem<thm-lax-milgram>` ensures that 
+problem {eq}`eq-lax-milgram-problem
+is well-posed, i.e.,
+* **Existence** of a solution
+* **Uniquessness** of the solution
+* **Continuous dependency on the data** (or **Stability**) of the solution.
+  Stability is guaranteed through {eq}`eq-lax-milgram-stab` which implies that
+  "small changes" in $a$ and $l$ will only lead to small changes in the solution $u$.
+```
