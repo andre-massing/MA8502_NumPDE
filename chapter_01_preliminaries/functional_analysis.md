@@ -165,7 +165,7 @@ Dividing the previous chain of inequalities by $\alpha$ and $\|u\|$ if $\| u \| 
 yields {eq}`eq-lax-milgram-stab`. For $\|u\| = 0$ the stability estimate is trivially satisfied.
 
 If $u_1$ and $u_2$
-both satisfy problem~{eq}`eq-lax-milgram-problem`, then
+both satisfy problem {eq}`eq-lax-milgram-problem`, then
 thanks to linearity of $a$ in the first slot,
 the difference $u_1-u_2$ satisfies problem~{eq}`eq-lax-milgram-problem` but with $f =  0$
 instead. In that case $C_l = 0$ and thus $0\leqslant\|u_1 - u_2 \| \leqslant \tfrac{0}{\alpha} = 0$, and thus $u_1 = u_2$.
@@ -173,11 +173,11 @@ instead. In that case $C_l = 0$ and thus $0\leqslant\|u_1 - u_2 \| \leqslant \tf
 
 ```{prf:remark}
 The {prf:ref}`Lax-Milgram theorem<thm-lax-milgram>` ensures that 
-problem {eq}`eq-lax-milgram-problem
+problem {eq}`eq-lax-milgram-problem`
 is well-posed, i.e.,
 * **Existence** of a solution
 * **Uniquessness** of the solution
 * **Continuous dependency on the data** (or **Stability**) of the solution.
-  Stability is guaranteed through {eq}`eq-lax-milgram-stab` which implies that
+  In the particular case of {prf:ref}`Lax-Milgram theorem<thm-lax-milgram>`, stability is guaranteed through {eq}`eq-lax-milgram-stab` which implies that
   "small changes" in $a$ and $l$ will only lead to small changes in the solution $u$.
 ```

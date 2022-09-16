@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: MA8502 - Numerical solutions of Partial Differential Equations
+title: MA8502 - Numerical Solutions of Partial Differential Equations
 logo: logo.png
 author: André Massing
 email: andre.massing@ntnu.no
@@ -113,6 +113,7 @@ sphinx:
           "VV" : ["\\mathbb{V}"]
           "CC" : ["\\mathbb{C}"]
           "floor": ["\\lfloor#1\\rfloor", 1]
+          "mrm": ["\\mathrm{#1}", 1]
           "mcA" : ["\\mathcal{A}"]
           "mcL" : ["\\mathcal{L}"]
           "mcT" : ["\\mathcal{T}"]

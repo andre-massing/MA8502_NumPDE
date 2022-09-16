@@ -29,10 +29,41 @@ L^p(\Omega) = \{ f : \Omega \to \RR \text{ is measurable and }
     \int_{\Omega} |f(x)|^p \dx
 \Bigr)^{1/p} < \infty
  \}.
+```
+A function $f \in L^p(\Omega)$ is often called $L^p$-integrable. 
+
+We also introduce the space of *locally* $L^p$-integrable functions on $\Omega$; that is,
+functions that are $L^p$ integrable on every compact subset $K \Subset \Omega$,
+```{math}
+:label: eq-loc-lebesque-spaces
+L^p_{\mrm{loc}}(\Omega) = \{ f: \Omega \to \RR | f \in L^p(K)  \; \forall K \Subset \Omega \}.
+```
 ````
+
+
 ## Sobolev spaces
 
-A short summary of Sobolev spaces
+### Weak derivatives 
+
+Let start with a motivating example. Let $u \in C^k(\Omega)$ and $\phi \in C^{\infty}_c(\Omega)$.
+Using Green's theorem and taken into account that $\phi = 0$ on a open neighborhood of the boundary of $\Omega$, 
+we see that
+```{math}
+:label: eq-weak-deriv-first
+\int_{\Omega} \partial_{x_i} u \phi \dx = 
+- \int_{\Omega} u \partial_{x_i} \phi \dx,
+```
+and iterating this formula, we observe that for any multiindex $\alpha
+\in \NN^n$ with $\alpha \leqslant k$, it holds that
+```{math}
+:label: eq-weak-deriv-alpha
+\int_{\Omega} \partial^{\alpha} u \phi \dx = 
+(-1)^{|\alpha|} \int_{\Omega} u \partial^{\alpha} \phi \dx.
+```
+
+In this setting, $\phi$ is typically called a *test function*.
+Note that the right-hand side of {eq}`eq-weak-deriv-alpha`
+
 
 
 <!-- ```{prf:theorem}

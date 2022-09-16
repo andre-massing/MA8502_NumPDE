@@ -123,13 +123,6 @@ a\Bigl(\sum_{j=1}^N U_j \phi_j, \phi_h \Bigr)
 = \underbrace{l(\phi_i)}_{=: b_i}  \quad i = 1, \ldots N.
 ```
 
-
-```{admonition} Click the title to toggle
-:class: dropdown
-
-This title was made into a dropdown admonition by adding `:class: dropdown` to it.
-```
-
 ### Abstract error theory
 
 ````{prf:lemma} Galerkin orthogonality
@@ -157,12 +150,6 @@ a(u_h, v_h) &= l(v_h).
 ```
 Subtracting the second equality from the first yields {eq}`eq-galerkin-ortho`.
 ````
-
-```{admonition} Click the title to toggle
-:class: dropdown
-
-This title was made into a dropdown admonition by adding `:class: dropdown` to it.
-```
 
 ````{prf:lemma} Cea's lemma
 :label: ceas-lemma
