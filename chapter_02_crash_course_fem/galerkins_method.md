@@ -136,7 +136,7 @@ and the discrete weak formulation {eq}`disc-weak-form`, respectively.
 Then the error $u-u_h$ satisfies the orthogonality relation
 
 ```{math}
-:label: eq-galerkin-ortho
+:label: eq:galerkin-ortho
 a(u-u_h, v_h) = 0 \quad \forall\, v_h \in V_h.
 ```
 
@@ -148,7 +148,7 @@ If $v_h \in V_h \subset V$, then the continuous $u$ and the discrete solution $u
 a(u, v_h)   &= l(v_h), \\
 a(u_h, v_h) &= l(v_h).
 ```
-Subtracting the second equality from the first yields {eq}`eq-galerkin-ortho`.
+Subtracting the second equality from the first yields {eq}`eq:galerkin-ortho`.
 ````
 
 ````{prf:lemma} Cea's lemma
@@ -163,7 +163,7 @@ Assume that
 
 Then $u_h$ satisfies a quasi best approximation property in the sense that
 ```{math}
-:label: eq-ceas-lemma
+:label: eq:ceas-lemma
 \| u - u_h \| \leqslant \dfrac{C_a}{\alpha} \inf_{v \in V_h} \| u - v_h\|.
 ```
 holds for the error $u-u_h$.
@@ -175,7 +175,7 @@ appearing the assumptions for the Lax-Milgram theorem.
 ````{prf:proof}
 Let $v_h \in V_h$ be fixed but arbitrary, then we wish to show that
 ```{math}
-:label: eq-ceas-lemma-alt
+:label: eq:ceas-lemma-alt
 \| u - u_h \| \leqslant \dfrac{C_a}{\alpha} \| u - v_h\|.
 ```
 The proof of this inequality is rather short. Its main essence consists of three estimates 
@@ -185,14 +185,14 @@ boundedness of $a(\cdot, \cdot)$ is exploited to estimate the resulting expressi
 To this end, we see that
 
 ```{math}
-:label: eq-ceas-lemma-proof
+:label: eq:ceas-lemma-proof
 \alpha \| u - u_h \|^2 &\leqslant a(u - u_h, u - u_h)  \\
                        &= a(u-u_h, u - v_h + v_h - u_h)  \\ 
                        &= a(u-u_h,  u - v_h) + \underbrace{a(u-u_h, v_h - u_h)}_{= 0} \\
                        &\leqslant C_a \| u - u_h \| \| u - v_h\|
 ```
 Assuming that $\| u - u_h \| \neq 0$ (otherwise 
-{eq}`eq-ceas-lemma-alt` is trivially satisfied), we can divide {eq}`eq-ceas-lemma-proof` by $\| u - u_h \|$ and 
+{eq}`eq:ceas-lemma-alt` is trivially satisfied), we can divide {eq}`eq:ceas-lemma-proof` by $\| u - u_h \|$ and 
 $\alpha$ to see that
 ```{math}
 \| u - u_h \| \leqslant \dfrac{C}{\alpha}\| u - v_h\|.
