@@ -23,6 +23,7 @@ or
 
 * Set up building tasks for jupyter book builds (DONE)
 * Set up snippets for myst/md files
+* Snippets already provided do not work as expected, e.g tab does not work.
 * Labels in math environment and references to them are really annoying/not working!
 * `$$` do not work in LaTeX output 
 * Find out how you can define new admonitions
