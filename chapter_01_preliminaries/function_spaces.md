@@ -1,4 +1,4 @@
-(sec:function-spaces)
+(sec:function-spaces)=
 # A brief review on function spaces
 
 In this chapter we collect some results on various function space we will
@@ -27,28 +27,48 @@ curriculum on *Measure and Integration theory*, see Chapter 9-10 in
 To this end, 
 
 ````{prf:definition} Lebesque spaces
-Let $\Omega \subset \RR^n$ be a open domain. Then
+Let $\Omega \subset \RR^n$ be a open domain. 
+
+Then
 the Lebesque spaces $L^p(\Omega)$ are defined by
 ```{math}
-:label: eq-lebesque-spaces
+:label: eq:lebesque-spaces
 L^p(\Omega) = \{ f : \Omega \to \RR \text{ is measurable and } 
 \|f\|_{L^p(\Omega)} 
-:= \|f\|_{p,\Omega} 
-:=  
-\Bigl(
-    \int_{\Omega} |f(x)|^p \dx
-\Bigr)^{1/p} < \infty
+< \infty
  \}.
 ```
+Here, the $L^p$-norm $\|\cdot\|_{L^p(\Omega)}$ is defined by
+```{math}
+:label: eq:lebesque-norm
+\|f\|_{L^p(\Omega)} 
+:=  
+\begin{cases}
+\Bigl(
+    \int_{\Omega} |f(x)|^p \dx
+\Bigr)^{1/p}  
+&\quad 1 \leqslant p < \infty
+\\
+\mrm{ess}\sup_{\Omega} |u|
+&\quad p=\infty
+\end{cases}
+```
+
+Sometimes we write $\|f\|_{p,\Omega}$ instead of $\|f\|_{L^p(\Omega)}$.
 A function $f \in L^p(\Omega)$ is often called $L^p$-integrable. 
 
 We also introduce the space of *locally* $L^p$-integrable functions on $\Omega$; that is,
 functions that are $L^p$ integrable on every compact subset $K \Subset \Omega$,
 ```{math}
-:label: eq-loc-lebesque-spaces
+:label: eq:loc-lebesque-spaces
 L^p_{\mrm{loc}}(\Omega) = \{ f: \Omega \to \RR | f \in L^p(K)  \; \forall K \Subset \Omega \}.
 ```
 ````
+
+```{admonition} TODO
+:class: :danger :dropdown
+Introduce inner product on $L^2$.
+```
 
 ````{prf:lemma} Determining uniqueness through testing
 :label: lem:uniqueness-by-testing
@@ -79,19 +99,19 @@ Let start with a motivating example. Let $u \in C^k(\Omega)$ and $\phi \in C^{\i
 Using Green's theorem and taking into account that $\phi = 0$ on a open neighborhood of the boundary of $\Omega$, 
 we see that
 ```{math}
-:label: eq-weak-deriv-first
+:label: eq:weak-deriv-first
 \int_{\Omega} \partial_{x_i} u \phi \dx = 
 - \int_{\Omega} u \partial_{x_i} \phi \dx,
 ```
 and iterating this formula, we observe that for any multiindex $\alpha
 \in \NN^n$ with $\alpha \leqslant k$, it holds that
 ```{math}
-:label: eq-weak-deriv-alpha
+:label: eq:weak-deriv-alpha
 \int_{\Omega} \partial^{\alpha} u \phi \dx = 
 (-1)^{|\alpha|} \int_{\Omega} u \partial^{\alpha} \phi \dx.
 ```
 
-Note that the integral expression on the right-hand side of {eq}`eq-weak-deriv-alpha` makes perfectly
+Note that the integral expression on the right-hand side of {eq}`eq:weak-deriv-alpha` makes perfectly
 sense even for $u\in L^1_{\mrm{loc}}$ and not only $u\in C^k(\Omega)$.
 This leads to a possibility to generalize or weakened the classical definition of derivatives. 
 
@@ -130,7 +150,7 @@ and thus $u_{\alpha} = \tilde{u}_{\alpha}$ almost everywhere
 by {prf:ref}`lem:uniqueness-by-testing`.
 ````
 
-````{prf:exercise} Relation between the modulus function and the Heaviside function
+````{exercise} Relation between the modulus function and the Heaviside function
 Let $\Omega = (-1,1)$ and set
 ```{math}
 u(x) &= x \\
@@ -153,6 +173,11 @@ $H(x)$ is the weak derivative of $u$.
   ```{math}
   H^k(\Omega) := W^{k,2}(\Omega)
   ```
+  Note that the $\| \cdot \|_{H^k(\Omega)}$ is induced by the inner product
+  ```{math}
+  (v,w)_{H^k(\Omega)} := 
+    \sum_{|\alpha| \leqslant k} (\partial^{\alpha} v, \partial^{\alpha} w)_{L^2(\Omega)}
+  ```
 * For $u \in W^{k,p}(\Omega)$, we set 
   ```{math}
   \| u \|_{W^{k,p}({\Omega})} := \|u\|_{k,p,\Omega} 
@@ -161,30 +186,74 @@ $H(x)$ is the weak derivative of $u$.
   \Bigl( 
     \sum_{|\alpha| \leqslant k} \| \partial^{\alpha} u \|_{L^p(\Omega)}^p
   \Bigr)^{1/p} 
-  & 1\leqslant p <  \infty
+  & 1\leqslant p <  \infty,
   \\
     \sum_{|\alpha| \leqslant k} \| \partial^{\alpha} u \|_{L^{\infty}(\Omega)}
-  & p =  \infty
+  & p =  \infty.
   \end{cases}
   ```
+* We set
+  ```{math}
+  W_0^{k,p}(\Omega) := \overline{C_c^{\infty}(\Omega)}^{\|\cdot\|_{k,p,\Omega}},
+  ```
+  that is, the topological closure of $C_c^{\infty}(\Omega)$ in $W^{k,p}(\Omega)$.
 ````
 
+```{prf:remark}
+$W_0^{k,p}(\Omega)$ can be understood as the closed subspace 
+consisting of those function $\phi$ in $W^{k,p}(\Omega)$ which are limits
+of sequences $\{\phi_n\}_{n=1}^\infty \subset C_c^{\infty}(\Omega)$.
+```
+Later we will need the following important result known as Poincaré inequality.
 
-
-
-
-<!-- ```{prf:theorem}
-:class: dropdown
-
-This is an example of how to hide the content of a directive.
+````{prf:theorem} Poincaré inequality
+:label: thm:poincare
+Let $\Omega$ be an open and bounded subset of $\RR^n$ and suppose
+then there is a constant $C_P = C_P(p,n,\Omega)$ such that
+```{math}
+\|u \|_{L^p(\Omega)} \leqslant C_P \|\nabla u \|_{L^p(\Omega)}.
+```
+for any $u \in W^{1,p}_0(\Omega)$.
+````
+```{prf:proof}
+For a proof we refer to {cite}`Evans2010` (p. 279).
 ```
 
-```{toggle}
-This is a toggled content block!
+````{prf:corollary}
+:label: cor:poincare
+On $W^{1,p}_0(\Omega)$, the $\| \cdot\|_{W^{1,p}(\Omega)}$ is equivalent to the norm
+```{math}
+\| u \|_{W^{1,p}_0(\Omega)} := \| \nabla u \|_{L^{p}(\Omega)}  
+```
+````
+
+````{prf:corollary}
+:label: cor:poincare
+On $W^{1,p}_0(\Omega)$, the $\| \cdot\|_{W^{1,p}(\Omega)}$ is equivalent to the norm
+```{math}
+\| u \|_{W^{1,p}_0(\Omega)} := \| \nabla u \|_{L^{p}(\Omega)}  
+```
+````
+
+````{prf:proof}
+A simple application of the Poincaré application yields
+```{math}
+\|\nabla u\|_{\Omega}^p
+\leqslant 
+\| u \|_{\Omega}^p +
+\|\nabla u\|_{\Omega}^p
+\leqslant
+(1+C_P) \|\nabla u\|_{\Omega}^p.
+```
+````
+
+```{admonition} TODO
+:class: :danger :dropdown
+Introduce dual spaces of $H^1$ and $H^1_0$.
 ```
 
-:::{admonition} Click the title to toggle
-:class: dropdown
+### Approximation results
 
-This title was made into a dropdown admonition by adding `:class: dropdown` to it.
-::: -->
+### Poincaré inequalties 
+
+### Trace operators
