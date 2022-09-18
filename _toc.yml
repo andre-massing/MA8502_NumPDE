@@ -7,6 +7,7 @@ root: lecture_01
 chapters:
 - file: chapter_01_preliminaries/functional_analysis.md
 - file: chapter_01_preliminaries/function_spaces
+- file: chapter_01_preliminaries/weak_form_pdes
 # - file: chapter_01_preliminaries/test_sphinx_proof
 - file: chapter_02_crash_course_fem/galerkins_method
 - file: references
