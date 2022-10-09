@@ -117,6 +117,8 @@ sphinx:
           "mcA" : ["\\mathcal{A}"]
           "mcL" : ["\\mathcal{L}"]
           "mcT" : ["\\mathcal{T}"]
+          "mcF" : ["\\mathcal{F}"]
+          "mcP" : ["\\mathcal{P}"]
           "cd" : ["\\mathrm{cd}"]
           "onehalf" : ["\\frac{1}{2}"]
           "bfa" : ["\\mathbf{a}"]
@@ -148,8 +150,14 @@ sphinx:
           "dE" : ["\\,\\mathrm{d}E"]
           "dK" : ["\\,\\mathrm{d}K"]
           "dM" : ["\\,\\mathrm{d}M"]
+          "dU" : ["\\,\\mathrm{d}U"]
           "dGamma" : ["\\,\\mathrm{d} \\Gamma"]
           "spann" : ["\\mathrm{span}"]
-
+          "jump": ["[\\![#1]\\!]", 1]
+          "jumps": ["[#1]]", 1]
+          "avg":  ["\\{\\!\\!\\{ #1 \\}\\!\\!\\}", 1]
+          "avgs": ["\\{#1\\}", 1]
+          "st" : ["\\;|\\;"]
+          "foralls" : ["\\forall\\,"]
 bibtex_bibfiles:
   - references.bib
