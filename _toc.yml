@@ -16,7 +16,6 @@ chapters:
   # - file: chapter_03_crash_course_fem/finite_elements_ciarlet
 - file: chapter_04/model_problem_adr
   sections:
-  - file: chapter_05/weak_form_adr
-- file: chapter_06/discontinuous_galerkin_diffusion
-- file: references
-   #- file: chapter_02_crash_course_fem/function_spaces
+  - file: chapter_04/weak_form_adr
+- file: chapter_05/discontinuous_galerkin_diffusion
+# - file: references

@@ -20,7 +20,7 @@ where
 \begin{alignat}{2}
 & b: \Omega \to \RR^d &&\quad \text{ is the advection field}, \\
 & c: \Omega \to \RR && \quad \text{ is the reaction term}, \\
-& \epsilon > 0 && \quad\text{ is the diffusivity paramter.}
+& \epsilon > 0 && \quad\text{ is the diffusivity parameter.}
 \end{alignat}
 ```
 

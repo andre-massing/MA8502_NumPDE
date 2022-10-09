@@ -1,6 +1,4 @@
-## Discontinuous Galerkin methods for the elliptic part
-
-Describe approach
+# Discontinuous Galerkin methods for elliptic problems 
 
 ### Derivation of the Symmetric Interior Penalty method
 
