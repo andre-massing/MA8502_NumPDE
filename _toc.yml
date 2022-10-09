@@ -5,10 +5,18 @@ format: jb-book
 root: lecture_01
   #root: root
 chapters:
-- file: chapter_01_preliminaries/functional_analysis.md
-- file: chapter_01_preliminaries/function_spaces
-- file: chapter_01_preliminaries/weak_form_pdes
+- file: chapter_01/functional_analysis.md
+- file: chapter_01/function_spaces
+- file: chapter_01/weak_form_pdes
 # - file: chapter_01_preliminaries/test_sphinx_proof
-- file: chapter_02_crash_course_fem/galerkins_method
+- file: chapter_02/galerkins_method
+# - file: chapter_03/ngsolve_tutorial
+# - file: chapter_03/gridap_tutorial
+  # sections:
+  # - file: chapter_03_crash_course_fem/finite_elements_ciarlet
+- file: chapter_04/model_problem_adr
+  sections:
+  - file: chapter_05/weak_form_adr
+- file: chapter_06/discontinuous_galerkin_diffusion
 - file: references
    #- file: chapter_02_crash_course_fem/function_spaces
