@@ -32,9 +32,11 @@ Note that
 ```
 
 For most part of the remaining lectures, we will require $A(x)$
-to satisfy the following defintion.
+to satisfy the following definition.
 
-````{prf:definition} Ellipticity of $\mcA$ 
+```{prf:definition} Ellipticity of $\mcA$ 
+:label: def:ellipticity
+
 The partial differential operator $\mcA$ given
 by {eq}`eq:def-A-operator` with coefficients
 $A = (a_{ij})_{i,j=1}^N \in (L^{\infty}(\Omega))^{n\times n}$
@@ -42,7 +44,7 @@ is called elliptic  constant $\alpha > 0$ such that
 * $ \lambda \cdot  A(x) \lambda \geqslant \alpha |\lambda|^2$
 
 for any $\lambda \in \RR^n$.
-````
+```
 
 ```{prf:remark}
 Note that $A \in (L^{\infty}(\Omega))^{n\times n}$ also implies that
@@ -93,6 +95,7 @@ We start by looking at the Poisson supplemented with Neumann boundary conditions
 :class: :danger :dropdown
 Later, mention possible impact on test and trial spaces.
 ```
+
 
 ## Neumann problems
 Let us consider the homogenous Neumann problem
@@ -159,6 +162,7 @@ show that $a(\cdot, \cdot)$ (being the $H^1$ inner product itself)
 satisfies the required assumptions of {prf:ref}`the Lax-Milgram theorem<thm-lax-milgram>`:
 ```{math}
 :nowrap: True
+:label: eq-lax-milgram-assump
 \begin{align}
 \text{Boundedness: }  a(v,w) &:= 
 \int_{\Omega} \nabla v \cdot \nabla  w \dx
@@ -331,22 +335,72 @@ But let's have a look at the coercivity/ellipticity: Setting $u=v$, we obtain
 ```{math}
 a(v,v) = \int_{\Omega} |\nabla v|^2
 ```
-But thanks to the {ref}`Poincaré inequalty<thm:poincare>`
-and {ref}`<cor:poincare>`
+But thanks to the {prf:ref}`Poincaré inequality<thm:poincare>`
+and {prf:ref}`cor:poincare` we not only know that $|\nabla\ \cdot |$ 
+defines norm on the closed subspace $H^1_{0}(\Omega)$ but that this norm
+is equivalent to the usual $H^1$-norm. Thanks to the proof of {prf:ref}`cor:poincare` we see that
+```{math}
+a(v,v) = \int_{\Omega} |\nabla v|^2 \geqslant (1 + C_p^2)^{-1/2} \|u\|_{1,\Omega}^2.
+```
 
 
-````{admonition} TODO (variants of Dirichlet problems)
-:class: :danger :dropdown
-Next, consider 
+### Inhomogeneous Dirichlet problem for $-\Delta$ operator
+Next, we consider 
 ```{math}
 :nowrap: True
+:label: eq:dirichlet-problem-inhomog
 \begin{equation}
 \left\{
 \begin{alignedat}{2}
-- \Delta u &= f & &\quad \text{in } \Omega \\
-         u &= 0 & &\quad \text{on } \Gamma
+- \Delta u + u &= f & &\quad \text{in } \Omega \\
+         u &= g_D & &\quad \text{on } \Gamma
 \end{alignedat}
 \right.
 \end{equation}
 ```
-````
+Compared to our previous weak formulation for the homogenous,
+the main question is now: how can we incorporate the non-homogenous
+Dirichlet b.c. $u = g_D$? First, we realize that
+the trial function $H^1_0(\Omega)$ for the solution does not 
+make sense anymore. So let's start from $H^1(\Omega)$. Then
+we also observe that the data $g_D$ should be in 
+$H^{1/2}(\Gamma)$, see {prf:ref}`def:Honehalf` to ensure
+that we can satisfy the equation $u = g_D$,
+and only $u$ satisfying this b.c. should be vialable solution candidates
+for our weak formulation. Thus we set
+```{math}
+H^1_{g_D}(\Omega) := 
+\{ v \in H^1(\Omega) \st \gamma(v) = g_D \}.
+```
+Since $g_D \in H^{1/2}(\Gamma)$, this set is not empty.
+Note that 
+$H^1_{g_D}(\Omega)$ is not really a vector space whenever 
+$g_D$ is not $0$ everywhere since the addition of 
+two functions $u_1, u_2$ with the same non-vanishing boundary data $g_D$ will result in
+a function $u$ satisfying $u = 2 g_D$!
+Is that sense, $H^1_{g_D}(\Omega)$ should rather be considered as **affine** subspace:
+For any $u_{g_D}$ satfying $\gamma(u_{g_D}) = g_D$, it holds that
+```{math}
+H^1_{g_D}(\Omega) = u_{g_D} + H^1_0(\Omega)
+                  := \{ u_{g_D} + v \st v \in H^1_0(\Omega) \}
+                   = \gamma^{-1}(g_D).
+```
+So the resulting weak formulation is
+Find $u \in V := H^1_{g_D}(\Omega)$ such that
+for all $v \in \widehat{V} := H^1_0(\Omega)$,
+```{math}
+\underbrace{\int_{\Omega} \nabla u \cdot\nabla v\dx}_{=:a(u,v)} = \underbrace{\int_{\Omega} f v \dx}_{=:l(v)}.
+```
+Note how in this case the trial function space and test function space
+are not identical any more!  How can we prove the well-posedness of
+this weak formulation? Lax-Milgram usually requires that the first and
+second slot of $a(\cdot, \cdot)$ invokes elements from the same
+(vector) space!  The common trick here is to "**lift**" the boundary
+condition, i.e. we know that by the definition of $H^{1/2}(\Gamma)$
+there must a $u_g \in H^1(\Omega)$ such that $\gamma_{u_g} = g_D$. 
+Then we make the ansatz $u = u_0 + u_g$ and with $u_0 \in
+H^1_0(\Omega)$, leading to the following weak formulation: find $u_0
+\in H^1_0(\Omega) =: V$ such that
+```{math}
+a(u_0,v) = l(v) - a(u_g, v) =: \widetilde{l}(v) \foralls v \in V.
+``` 

@@ -1,7 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: MA8502 - Numerical Solutions of Partial Differential Equations
+# title: MA8502 - Numerical Solutions of Partial Differential Equations
+title: TMA4183 - Review on weak formulations of PDEs and finite element methods
 logo: logo.png
 author: André Massing
 email: andre.massing@ntnu.no
@@ -56,8 +57,10 @@ sphinx:
     latex_elements:
         preamble:  
           \usepackage{amsmath}
-        preamble:  
+          \usepackage[nice]{nicefrac}
           \usepackage{notation}
+        # preamble:  
+          # \usepackage{notation}
           # \DeclareMathOperator{\Div}{div}
           # \DeclareMathOperator{\Grad}{grad}
           # \DeclareMathOperator{\Curl}{curl}
@@ -112,6 +115,7 @@ sphinx:
           "NN" : ["\\mathbb{N}"]
           "VV" : ["\\mathbb{V}"]
           "CC" : ["\\mathbb{C}"]
+          "PP" : ["\\mathbb{P}"]
           "floor": ["\\lfloor#1\\rfloor", 1]
           "mrm": ["\\mathrm{#1}", 1]
           "mcA" : ["\\mathcal{A}"]
@@ -153,11 +157,15 @@ sphinx:
           "dU" : ["\\,\\mathrm{d}U"]
           "dGamma" : ["\\,\\mathrm{d} \\Gamma"]
           "spann" : ["\\mathrm{span}"]
+          "avg":   ["\\{\\!\\!\\{ #1 \\}\\!\\!\\}", 1]
+          "wavg":  ["\\{\\!\\!\\{ #1 \\}\\!\\!\\}_{\\omega}", 1]
+          "wavgd": ["\\langle\\!\\langle#1\\rangle\\!\\rangle_{\\omega}", 1]
           "jump": ["[\\![#1]\\!]", 1]
           "jumps": ["[#1]]", 1]
-          "avg":  ["\\{\\!\\!\\{ #1 \\}\\!\\!\\}", 1]
           "avgs": ["\\{#1\\}", 1]
           "st" : ["\\;|\\;"]
           "foralls" : ["\\forall\\,"]
+          "onehalf" : ["1/2"]
+          # "onehalf" : ["\\frac{1}{2}"]
 bibtex_bibfiles:
   - references.bib

@@ -59,10 +59,10 @@ Inner products satisfy the *Cauchy-Schwarz inequality:*
 $(V, \|\cdot\|_V)$ and $(W, \|\cdot\|_W)$
 is call bounded if there is a constant $C \in \RR^+_0$ such that
 ```{math}
-\| L v \|_W \leqslant \|v\|_V.
+\| L v \|_W \leqslant C \|v\|_V.
 ```
 
-The *operator norm* $\|T\|_{V\to W}$ of $T$ is then the smallest such constant given by 
+The *operator norm* $\|L\|_{V\to W}$ of $T$ is then the smallest such constant given by 
 ```{math}
 \|L\|
 &= \inf \{C \in \RR^+_0 : \|L v \|_W \leqslant \|v\|_V \, \forall v \in V\} \\
@@ -102,7 +102,7 @@ Let $H$ be a Hilbert space with a inner product $(\cdot, \cdot)$. Then for
 every continuous functional $l:H \to \RR$, there is a unique vector $u_l \in H$
 such that
 ```{math}
-l(v) = (u_l ,v) \quad \forall v \in H,
+l(v) = (v, u_l) \quad \forall v \in H,
 ```
 and we have that
 ```{math}
@@ -140,7 +140,7 @@ possesses solution a solution $u \in V$ if the following assumptions are satisfi
 3. The bilinear form $a$ is coercive, i.e. there is a constant $\alpha > 0$ such that
     ```{math}
     :label: eq:lax-milgram-coerc
-    a(v, v)  \geqslant \|v\|^2 \quad \forall v \in V.
+    a(v, v)  \geqslant \alpha \|v\|^2 \quad \forall v \in V.
     ```
 Moreover, the solution $u$ satisfies the stability (or a priori) estimate
 ```{math}

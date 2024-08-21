@@ -4,8 +4,6 @@
 
 ### The general recipe
 
-
-
 Galerkin's method is an general approach to solve partial differential equation numerically 
 by transforming them into a system of discrete equations. 
 The computed solution to the discrete equations can then be thought of as an approximation
@@ -153,7 +151,6 @@ Subtracting the second equality from the first yields {eq}`eq:galerkin-ortho`.
 
 ````{prf:lemma} Cea's lemma
 :label: ceas-lemma
-:class: dropdown
 
 Assume that 
 * $V_h \subset V$ 
@@ -173,6 +170,7 @@ appearing the assumptions for the Lax-Milgram theorem.
 ````
 
 ````{prf:proof}
+
 Let $v_h \in V_h$ be fixed but arbitrary, then we wish to show that
 ```{math}
 :label: eq:ceas-lemma-alt

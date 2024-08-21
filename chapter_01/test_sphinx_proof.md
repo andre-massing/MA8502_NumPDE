@@ -1,20 +1,27 @@
 # Illustrating sphinx-proof
 
-<!-- 
-```{prf:assumption}
+Assumption directive does not work in Jupyterbook
+ <!--
+  ```{prf:assumption}
+ 		 
 :label: my-assumption
+:class: dropdown
 
 This is a dummy assumption directive.
-``` 
+```   
+-->
+
 
 ```{prf:axiom} Completeness of $\mathbb{R}$
 :label: my-axiom
+:class: dropdown
 
 Every Cauchy sequence on the real line is convergent.
 ```
 
 ````{prf:criterion} Weyl's criterion
 :label: weyls-criterion
+:class: dropdown
 
 Weyl's criterion states that the sequence $a_n$ is equidistributed modulo $1$ if
 and only if for all non-zero integers $m$,
@@ -26,6 +33,7 @@ and only if for all non-zero integers $m$,
 
 ````{prf:remark}
 :label: my-remark
+:class: dropdown
 
 More generally there is a class of density functions
 that possesses this feature, i.e.
@@ -42,12 +50,14 @@ This property is called **spherical symmetry** (see p 81. in Leamer
 
 ```{prf:conjecture} Fake $\gamma$ conjecture
 :label: my-conjecture
+:class: dropdown
 
 This is a dummy conjecture to illustrate that one can use math in titles.
 ```
 
 ```{prf:corollary}
 :label: my-corollary
+:class: dropdown
 
 If $A$ is a convergent matrix, then there exists a matrix norm such
 that $\vert \vert A \vert \vert < 1$.
@@ -55,6 +65,7 @@ that $\vert \vert A \vert \vert < 1$.
 
 ```{prf:algorithm} Ford–Fulkerson
 :label: my-algorithm
+:class: dropdown
 
 **Inputs** Given a Network $G=(V,E)$ with flow capacity $c$, a source node $s$, and a sink node $t$
 
@@ -73,6 +84,7 @@ that $\vert \vert A \vert \vert < 1$.
 
 ````{prf:example}
 :label: my-example
+:class: dropdown
 
 Next, we shut down randomness in demand and assume that the demand shock
 $\nu_t$ follows a deterministic path:
@@ -94,19 +106,27 @@ ex2.simulate(x0)
 
 ```{prf:property}
 :label: my-property
+:class: dropdown
 
 This is a dummy property to illustrate the directive.
 ```
 
 ```{prf:observation}
 :label: my-observation
+:class: dropdown
 
 This is a dummy observation directive.
 ```
 
 ```{prf:proposition}
 :label: my-proposition
+:class: dropdown
 
 This is a dummy proposition directive.
 ```
--->
+
+```{prf:proof}
+:class: dropdown
+
+This is a dummy proof directive.
+```

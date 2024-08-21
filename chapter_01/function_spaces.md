@@ -108,9 +108,10 @@ and iterating this formula, we observe that for any multiindex $\alpha
 ```{math}
 :label: eq:weak-deriv-alpha
 \int_{\Omega} \partial^{\alpha} u \phi \dx = 
-(-1)^{|\alpha|} \int_{\Omega} u \partial^{\alpha} \phi \dx.
+(-1)^{|\alpha|} \int_{\Omega} u \partial^{\alpha} \phi \dx,
 ```
 
+where $|\alpha| = \alpha_1 + \cdots \alpha_n$.
 Note that the integral expression on the right-hand side of {eq}`eq:weak-deriv-alpha` makes perfectly
 sense even for $u\in L^1_{\mrm{loc}}$ and not only $u\in C^k(\Omega)$.
 This leads to a possibility to generalize or weakened the classical definition of derivatives. 
@@ -153,7 +154,7 @@ by {prf:ref}`lem:uniqueness-by-testing`.
 ````{exercise} Relation between the modulus function and the Heaviside function
 Let $\Omega = (-1,1)$ and set
 ```{math}
-u(x) &= x \\
+u(x) &= |x| \\
 H(x) &= \begin{cases} -1 &\quad x \in (-1,0) \\ 
                       1  &\quad x \in [0, 1)
         \end{cases}
@@ -197,6 +198,10 @@ $H(x)$ is the weak derivative of $u$.
   W_0^{k,p}(\Omega) := \overline{C_c^{\infty}(\Omega)}^{\|\cdot\|_{k,p,\Omega}},
   ```
   that is, the topological closure of $C_c^{\infty}(\Omega)$ in $W^{k,p}(\Omega)$.
+* Finally, we introduce the common notation for the dual space of $H^1_0(\Omega)$, 
+  ```{math}
+  H^{-1}(\Omega) := (H^1_0(\Omega))'. 
+  ``` 
 ````
 
 ```{prf:remark}
@@ -227,14 +232,6 @@ On $W^{1,p}_0(\Omega)$, the $\| \cdot\|_{W^{1,p}(\Omega)}$ is equivalent to the 
 ```
 ````
 
-````{prf:corollary}
-:label: cor:poincare
-On $W^{1,p}_0(\Omega)$, the $\| \cdot\|_{W^{1,p}(\Omega)}$ is equivalent to the norm
-```{math}
-\| u \|_{W^{1,p}_0(\Omega)} := \| \nabla u \|_{L^{p}(\Omega)}  
-```
-````
-
 ````{prf:proof}
 A simple application of the Poincaré application yields
 ```{math}
@@ -243,17 +240,56 @@ A simple application of the Poincaré application yields
 \| u \|_{\Omega}^p +
 \|\nabla u\|_{\Omega}^p
 \leqslant
-(1+C_P) \|\nabla u\|_{\Omega}^p.
+(1+C_P^p) \|\nabla u\|_{\Omega}^p.
 ```
 ````
 
-```{admonition} TODO
-:class: :danger :dropdown
-Introduce dual spaces of $H^1$ and $H^1_0$.
-```
+<!-- ### Approximation results -->
 
-### Approximation results
-
-### Poincaré inequalties 
+<!-- ### Poincaré inequalties  -->
 
 ### Trace operators
+Next, we very briefly discuss whether and how functions of certain Sobolev spaces defined
+on the domain $\Omega$ can be restricted to the boundary $\partial \Omega$. This plays
+an important role in the well-posedness of boundary value problems, as we need to determine 
+the correct spaces for the boundary data in a e.g. Dirichlet or Neumann boundary problem
+when the data is **non-homogeneous**.
+
+For the remaining part of this Chapter, we assume that $\Omega$ is  bounded and has 
+a "well-behaving" boundary, that is, it is either Lipschitz or --- if this doesn't tell  you much ---
+is simply $C^{\infty}$.
+
+````{prf:theorem} Traces of $H^1(\Omega)$ spaces
+:label: thm:trace-spaces
+For a bounded domain $\Omega$ with Lipschitz (or $C^{\infty}$) boundary
+$ \Gamma = \partial \Omega$, there
+exists a bounded operator $\gamma : H^1(\Omega) \to L^2(\Gamma)$ (the so-called *Trace Operator*) such that 
+$\gamma(u) = u|_{\Gamma}$ whenever $u \in C(\overline{\Omega})$.
+
+If such a trace operator exists, then one can show that
+```{math}
+H^1_0(\Omega) = \mathrm{ker} \gamma = \{v \in H^1(\Omega) \st \gamma(v) = 0 \}.
+```
+````
+
+It turns out that the trace operator $\gamma$ **is not onto $L^2(\Omega)$**. Thus, when we later want
+to find certain weak formulations and solutions $u \in H^1(\Omega)$ which also need to satisfy certain
+inhomogeneous boundary conditions such as $u = u_D$ on $\Gamma$, we need to be careful about
+the choice of function space from which we take the boundary data $u_D$.
+That motivates the following
+
+````{prf:definition} $H^{1/2}(\Gamma)$
+:label: def:Honehalf
+We set
+```{math}
+H^{1/2}(\Omega) = \{ v \in L^2(\Omega) \st \gamma(\overline{v}) = v \text{ for some } \overline{v} \in H^1(\Omega) \}
+```
+and define a corresponding norm by
+```{math}
+  \|v \|_{H^{1/2}(\Gamma)} := \|v\|_{1/2, \Gamma} := \inf \{ \|\overline{v}\|_{1,\Omega} \st \gamma(\overline{v}) = v\}.
+```
+Consequently, 
+```{math}
+\|v\|_{1/2,\Gamma} \leqslant \| v\|_{1, \Omega}.
+```
+````
