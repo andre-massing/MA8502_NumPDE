@@ -1,3 +1,5 @@
+<!-- 
+
 # Illustrating sphinx-proof
 
 Assumption directive does not work in Jupyterbook
@@ -9,8 +11,6 @@ Assumption directive does not work in Jupyterbook
 
 This is a dummy assumption directive.
 ```   
--->
-
 
 ```{prf:axiom} Completeness of $\mathbb{R}$
 :label: my-axiom
@@ -130,3 +130,4 @@ This is a dummy proposition directive.
 
 This is a dummy proof directive.
 ```
+ -->
