@@ -8,9 +8,8 @@ chapters:
 - file: chapter_01/functional_analysis.md
 - file: chapter_01/function_spaces
 - file: chapter_01/weak_form_pdes
-# - file: chapter_01/test_sphinx_proof
-- file: chapter_02/galerkins_method
-# - file: chapter_03/finite_elements_ciarlet
+- file: chapter_02/galerkin_methods
+- file: chapter_02/finite_elements_ciarlet
 # - file: chapter_03/ngsolve_tutorial
 # - file: chapter_03/gridap_tutorial
   # sections:
@@ -22,3 +21,4 @@ chapters:
 # - file: chapter_07/project_01
 # - file: chapter_06/seminar_problems
 - file: references
+# - file: chapter_01/test_sphinx_proof
