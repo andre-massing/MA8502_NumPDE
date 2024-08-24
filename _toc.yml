@@ -9,10 +9,11 @@ chapters:
 - file: chapter_01/function_spaces
 - file: chapter_01/weak_form_pdes
 - file: chapter_02/galerkin_methods
-- file: chapter_02/finite_elements_ciarlet
+  sections:
+  - file: chapter_02/finite_elements_ciarlet
+- file: chapter_02/test_active_code
 # - file: chapter_03/ngsolve_tutorial
 # - file: chapter_03/gridap_tutorial
-  # sections:
   # - file: chapter_03_crash_course_fem/finite_elements_ciarlet
 # - file: chapter_04/model_problem_adr
   # sections:
