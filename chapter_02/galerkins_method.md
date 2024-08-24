@@ -13,7 +13,7 @@ the Poisson problem as a guiding prototype example.
 
 ```{note}
 The following recipe is deliberately kept vague. Details such as boundary conditions,
-suitable function spaces, and 
+suitable function spaces etc. need to be taken into account accordingly. 
 ```
 
 % TODO Refer back to PP
