@@ -11,7 +11,7 @@ chapters:
 - file: chapter_02/galerkin_methods
   sections:
   - file: chapter_02/finite_elements_ciarlet
-- file: chapter_02/test_active_code
+# - file: chapter_02/test_active_code
 # - file: chapter_03/ngsolve_tutorial
 # - file: chapter_03/gridap_tutorial
   # - file: chapter_03_crash_course_fem/finite_elements_ciarlet

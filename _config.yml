@@ -116,6 +116,7 @@ sphinx:
           "VV" : ["\\mathbb{V}"]
           "CC" : ["\\mathbb{C}"]
           "PP" : ["\\mathbb{P}"]
+          "SS" : ["\\mathbb{S}"]
           "PPc" : ["\\mathbb{P}^{\\mathrm{c}}"]
           "PPdc" : ["\\mathbb{P}^{\\mathrm{dc}}"]
           "floor": ["\\lfloor#1\\rfloor", 1]
@@ -162,6 +163,7 @@ sphinx:
           "dGamma" : ["\\,\\mathrm{d} \\Gamma"]
           "spann" : ["\\mathrm{span}"]
           "diam" : ["\\mathrm{diam}"]
+          "convex" : ["\\mathrm{convex}"]
           "avg":   ["\\{\\!\\!\\{ #1 \\}\\!\\!\\}", 1]
           "wavg":  ["\\{\\!\\!\\{ #1 \\}\\!\\!\\}_{\\omega}", 1]
           "wavgd": ["\\langle\\!\\langle#1\\rangle\\!\\rangle_{\\omega}", 1]
@@ -173,4 +175,5 @@ sphinx:
           "onehalf" : ["1/2"]
           # "onehalf" : ["\\frac{1}{2}"]
 bibtex_bibfiles:
-  - references.bib
+  - MA8502.bib
+  # - references.bib
