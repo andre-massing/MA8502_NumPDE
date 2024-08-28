@@ -128,7 +128,10 @@ Repeating the construction on each $T_i$ and patching those local basis function
 Next, we provide generalization with respect to the definition of meshes and
 the local finite elements.
 
-### Meshes
+
+### Finite element method in several dimensions
+
+#### Meshes
 We start by giving a definition of a **polyhedron** (also called a polytope) which is taken and adapted from {cite:p}`ErnGuermond2021n` and which is suitable
 for our purposes.
 
@@ -147,34 +150,34 @@ Next, as we will mostly be concerned with simplical meshes, we need to recall
 the definition of a simplex as a particular instance of a polyhedron.
 
 ````{prf:definition} $d$-simplex in $\RR^n$
-A $d$-simplex $\SS^d$ in $\RR^n$ is defined as the convex hull of
+A $d$-simplex $S^d$ in $\RR^n$ is defined as the convex hull of
 $d+1$ vectors $\{\bfa_0, \ldots, \bfa_d\} \subset \RR^n$, i.e.
 \begin{align}
-\SS^d 
+S^d 
 &:= 
-\SS^d(\bfa_0, \bfa_1, \ldots, \bfa_d) :=
+S^d(\bfa_0, \bfa_1, \ldots, \bfa_d) :=
 \convex(\{\bfa_0, \bfa_1, \ldots, \bfa_d\})
 \\
 &= \Bigl\{ \sum_{i=0}^d \lambda_i \bfa_i \mid 0 \leqslant \lambda_i \leqslant 1, i = 0,\ldots n, \sum_{i=0}^n \lambda_i = 1
 \Bigr\}
 \end{align}.
-The $d$-simplex $\SS^d$ is call **non-degenerated**, if the vectors
+The $d$-simplex $S^d$ is call **non-degenerated**, if the vectors
 $\bfb_i = \bfa_i - \bfa_0, i = 1,\ldots,d$ span a $d$-dimensional subspace of $\RR^n$
 
 An $l$-dimensional face $F = F(i_0, \ldots, i_l)$ of the $d$-simplex 
-$\SS^d(\bfa_0, \bfa_1, \ldots, \bfa_d)$ is defined as the convex hull
+$S^d(\bfa_0, \bfa_1, \ldots, \bfa_d)$ is defined as the convex hull
 
 ```{math}
 :label: def-l-face
-F = \SS^d(\bfa_{i_0},\ldots \bfa_{i_l})
+F = S^d(\bfa_{i_0},\ldots \bfa_{i_l})
 ```
 
 for a choice of indices $\{i_0, \ldots, i_l\} \subset \{0, \ldots, d\}^{l+1}$.
-We also denote by $\mcF^l(\SS^d)$ the collection of all $l$-dimensional faces of $\SS^d$,
+We also denote by $\mcF^l(S^d)$ the collection of all $l$-dimensional faces of $S^d$,
 
 ```{math}
 :label: def-l-faces
-\mcF^l(\SS^d) = 
+\mcF^l(S^d) = 
 \{
 F(i_0, \ldots, i_l) | 0 \leqslant i_0, \ldots i_l \leqslant d
 \}.
@@ -183,9 +186,9 @@ F(i_0, \ldots, i_l) | 0 \leqslant i_0, \ldots i_l \leqslant d
 Usually, we call $d-1$ dimensional faces for **facets**, $0$-dimensional faces for **vertices** 
 and $1$-dimensional faces for **edges**.
 
-A **smooth** non-degenerated $d$-simplex $\SS^d$ is the image of a $d$-dimensional flat 
-non-degenerated (reference) simplex $\widehat{\SS}^d$ under a
-diffeomorphism $\Phi : \widehat{\SS}^d \to \SS^d$.
+A **smooth** non-degenerated $d$-simplex $S^d$ is the image of a $d$-dimensional flat 
+non-degenerated (reference) simplex $\widehat{S}^d$ under a
+diffeomorphism $\Phi : \widehat{S}^d \to S^d$.
 The $l$-faces of a smooth $d$-simplex are simply given by the image of the $l$-faces $\widehat{F}$
 under $\Phi$.
 ````
@@ -193,7 +196,7 @@ under $\Phi$.
 ```{prf:remark}
 With the definitions of the vectors $\bfb_i$ above, note that we can rewrite the set of all convex combination as
 \begin{align}
-\SS^d
+S^d
 =
 \Bigl\{ \sum_{i=1}^d \lambda_i \bfb_i \mid 0 \leqslant \lambda_i \leqslant 1, i = 0,\ldots n, \sum_{i=0}^n \lambda_i \leqslant 1
 \Bigr\}
@@ -239,7 +242,7 @@ is called **affine**.
 For simplicial meshes, the references element is often chosen to be the unit simplex, i.e. the convex hull of the $\mathbf{0} =: \bfe_0$
 vector and standard orthonormal basis $\{\bfe_1, \ldots, \bfe_n\}$:
 \begin{align}
-\widehat{T} = \SS^n(\bfe_0, \bfe_1, \ldots, \bfe_n).
+\widehat{T} = S^n(\bfe_0, \bfe_1, \ldots, \bfe_n).
 \end{align}
 
 
@@ -259,8 +262,9 @@ the intersection is an $l$-dimensional face of both $T$ and $\widetilde{T}$,
 for some $0 \leqslant l \leqslant n$
 ```
 
-### Ciarlet definition of finite
 
-### Local interpolation operators
+#### Ciarlet definition of an finite element
 
-### Global interpolation operators
+#### Local interpolation operators
+
+#### Global interpolation operators
