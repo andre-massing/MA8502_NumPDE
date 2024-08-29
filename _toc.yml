@@ -21,8 +21,9 @@ chapters:
   sections:
   - file: chapter_03/weak_form_adr
   - file: chapter_03/adr-example
-# - file: chapter_05/discontinuous_galerkin_diffusion
+- file: chapter_04/discontinuous_galerkin_diffusion
 # - file: chapter_07/project_01
+- file: chapter_05/discontinuous_galerkin_advection_reaction
 # - file: chapter_06/seminar_problems
 - file: references
 # - file: chapter_01/test_sphinx_proof

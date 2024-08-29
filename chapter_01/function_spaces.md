@@ -216,6 +216,7 @@ Later we will need the following important result known as Poincaré inequality.
 Let $\Omega$ be an open and bounded subset of $\RR^n$ and suppose
 then there is a constant $C_P = C_P(p,n,\Omega)$ such that
 ```{math}
+:label: eq:poincare
 \|u \|_{L^p(\Omega)} \leqslant C_P \|\nabla u \|_{L^p(\Omega)}.
 ```
 for any $u \in W^{1,p}_0(\Omega)$.

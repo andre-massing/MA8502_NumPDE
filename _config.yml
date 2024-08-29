@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 # title: MA8502 - Numerical Solutions of Partial Differential Equations
-title: TMA4183 - Review on weak formulations of PDEs and finite element methods
+title: MA8502 - Numerical Solutions of Partial Differential Equations
 logo: logo.png
 author: André Massing
 email: andre.massing@ntnu.no
@@ -54,6 +54,7 @@ sphinx:
     - sphinx_copybutton
   config:
     bibtex_reference_style: author_year
+    myst_dmath_double_inline: true
     latex_elements:
         preamble:  
           \usepackage{amsmath}
