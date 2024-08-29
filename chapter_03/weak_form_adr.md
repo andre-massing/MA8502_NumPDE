@@ -24,7 +24,7 @@ $a(\cdot, \cdot)$ is not symmetric, and therefore it it less trivial to show
 that the bilinear form $a(\cdot, \cdot)$ indeed is both coercive and bounded.
 
 (ssec:coercivity-adr)=
-### Coercivity of the bilinear form 
+### Coercivity
 
 First, we want to show that there exists a constant $C_a > 0$ such that
 $$
@@ -112,3 +112,30 @@ a(u,u) &=
 If one prefers to work with the $H^1$-norm, we could have replaced the last inequality by
 $\geqslant \min\{\epsilon, c_0\} \|u\|_{H^1(\Omega)}$ or simply used the Poincare inequality.
 
+(ssec:boundedness-adr)=
+### Boundedness
+The proof of boundedness is rather straightforward and involves mainly the use of the Cauchy-Schwarz inequality
+and applications of the {prf:thm}`Poincare inequality<thm:poincare>` to translate $L^2$-norms into $\|\cdot\|_V$-norms.
+To this end we observe that for all $u,v\in V$
+:::{math}
+a(u,v) &= 
+\epsilon(\nabla u, \nabla v)_{\Omega} + (\bfb\cdot\nabla u, v)_{\Omega} + (c u , v)_{\Omega}
+\\
+&\leqslant
+\epsilon \|\nabla u\|_{\Omega} \|\nabla v\|_{\Omega} 
++ \|\bfb\|_{L^{\infty}(\Omega)}\|\nabla u\|_{\Omega} \|v\|_{\Omega} 
++ \|c\|_{L^{\infty}(\Omega)} \|u\|_{\Omega}\|v\|_{\Omega}
+\\
+&\leqslant
+\epsilon \|\nabla u\|_{\Omega} \|\nabla v\|_{\Omega} 
++ \|\bfb\|_{L^{\infty}(\Omega)}
+\|\nabla u\|_{\Omega} C_P \|\nabla v\|_{\Omega} 
++ \|c\|_{L^{\infty}(\Omega)}
+C_P \|\nabla u\|_{\Omega} C_P \|\nabla v\|_{\Omega}
+\\
+&\leqslant
+\underbrace{
+    ( \epsilon + \|\bfb\|_{L^{\infty}(\Omega)} C_P
++ \|c\|_{L^{\infty}(\Omega) C_P^2} )
+}_{C_a} \|\nabla u\|_{\Omega} \|\nabla v\|_{\Omega}.
+:::
