@@ -161,6 +161,7 @@ sphinx:
           "dK" : ["\\,\\mathrm{d}K"]
           "dM" : ["\\,\\mathrm{d}M"]
           "dU" : ["\\,\\mathrm{d}U"]
+          "dt" : ["\\,\\mathrm{d}t"]
           # "PPc" : ["\\mathbb{P}_{\\mathrm{c}}^{#1}", 1]
           "dGamma" : ["\\,\\mathrm{d} \\Gamma"]
           "spann" : ["\\mathrm{span}"]
