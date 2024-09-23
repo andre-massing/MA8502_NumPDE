@@ -1,4 +1,4 @@
-(sec-weak-formulation-adr)=
+(sec:weak-formulation-adr)=
 ## Weak formulation and well-posedness of the advection-reaction-diffusion problem
 <!-- Refer to the {prf:ref}`def-reduced-problem-adr` for the ADR problem. -->
 
@@ -10,7 +10,7 @@ $-(\epsilon \Delta u , v)_{\Omega}$, we arrive at the following weak formulation
 Find $u \in H^1_0(\Omega) = V$ s.t. for all $v \in V$
 ```{math}
 :label: eq-weak-form-adr
-a(u,v) := \epsilon(\nabla u, \nabla v)_{\Omega} + (\bfb\cdot\nabla u, v)_{\Omega} + (c u , v)_{\Omega}
+a(u,v) := \epsilon(\nabla u, \nabla v)_{\Omega} + (\boldsymbol{b}\cdot\nabla u, v)_{\Omega} + (c u , v)_{\Omega}
 = (f, v)_{\Omega} =: l(v).
 ```
 
@@ -35,73 +35,73 @@ $\| \cdot \|_V = \| \nabla (\cdot) \|_{\Omega }$, which is equivalent to the $H^
 thanks to the {prf:ref}`Poincare inequality<thm:poincare>`.
 Now, we set $u=v$ in {eq}`eq-weak-form-adr` and obtain
 $$
-a(u,u) = \epsilon \|\nabla u\|_{\Omega}^2 + (\bfb\cdot\nabla u, u)_{\Omega} + (c u , u)_{\Omega}.
+a(u,u) = \epsilon \|\nabla u\|_{\Omega}^2 + (\boldsymbol{b}\cdot\nabla u, u)_{\Omega} + (c u , u)_{\Omega}.
 $$(eq-coerc-adr-form-step1)
 Now the troublesome term is the nonsymmetric part
 $
 (b\cdot\nabla u, u)_{\Omega}
 $  and to handle it, we first observe that
 $$
-\nabla\cdot (\bfb uv) = \bfb\cdot\nabla u v + \bfb\cdot\nabla v u + \nabla\cdot \bfb u v.
+\nabla\cdot (\boldsymbol{b} uv) = \boldsymbol{b}\cdot\nabla u v + \boldsymbol{b}\cdot\nabla v u + \nabla\cdot \boldsymbol{b} u v.
 $$
 and then use the famous the Gauß/Divergence theorem to see that
 :::{math}
-(\bfb\cdot \bfn u, v)_{\partial \Omega} = 
-\int_{\Omega} \nabla\cdot (\bfb uv) dx
-= (\bfb\cdot\nabla u, v)_{\Omega} 
-+ (\bfb\cdot\nabla v, u)_{\Omega}
-+ (\nabla\cdot\bfb v, u)_{\Omega}.
+(\boldsymbol{b}\cdot \bfn u, v)_{\partial \Omega} = 
+\int_{\Omega} \nabla\cdot (\boldsymbol{b} uv) dx
+= (\boldsymbol{b}\cdot\nabla u, v)_{\Omega} 
++ (\boldsymbol{b}\cdot\nabla v, u)_{\Omega}
++ (\nabla\cdot\boldsymbol{b} v, u)_{\Omega}.
 :::
 So the term
 $
-(\bfb\cdot\nabla u, v)_{\Omega}
+(\boldsymbol{b}\cdot\nabla u, v)_{\Omega}
 $
 can be rewritten as
 :::{math}
-(\bfb\cdot\nabla u, v)_{\Omega} 
+(\boldsymbol{b}\cdot\nabla u, v)_{\Omega} 
 = 
-- (u, \bfb\cdot\nabla v)_{\Omega}
-- (\nabla\cdot\bfb v, u)_{\Omega}
-+ (\bfb\cdot \bfn u, v)_{\partial \Omega}.
+- (u, \boldsymbol{b}\cdot\nabla v)_{\Omega}
+- (\nabla\cdot\boldsymbol{b} v, u)_{\Omega}
++ (\boldsymbol{b}\cdot \bfn u, v)_{\partial \Omega}.
 :::
 For $u,v\in H^1_0(\Omega)$, the boundary term vanishes. Moreover,
-in the typical case  $\nabla \cdot \bfb = 0$ case, we observe that
-$(\bfb\cdot\nabla u, v)_{\Omega}$, i.e.
+in the typical case  $\nabla \cdot \boldsymbol{b} = 0$ case, we observe that
+$(\boldsymbol{b}\cdot\nabla u, v)_{\Omega}$, i.e.
 :::{math}
-(\bfb\cdot\nabla u, v)_{\Omega}
--(u, \bfb\cdot\nabla v)_{\Omega}
+(\boldsymbol{b}\cdot\nabla u, v)_{\Omega}
+-(u, \boldsymbol{b}\cdot\nabla v)_{\Omega}
 :::
-and thus $(\bfb\cdot\nabla u, u)_{\Omega} = 0$!
+and thus $(\boldsymbol{b}\cdot\nabla u, u)_{\Omega} = 0$!
 
-In the more general case where $\nabla \cdot \bfb \neq 0$, we can cleverly 
-rewrite $(\bfb\cdot\nabla u, v)_{\Omega}$ as
+In the more general case where $\nabla \cdot \boldsymbol{b} \neq 0$, we can cleverly 
+rewrite $(\boldsymbol{b}\cdot\nabla u, v)_{\Omega}$ as
 :::{math}
-(\bfb\cdot\nabla u, v)_{\Omega}
+(\boldsymbol{b}\cdot\nabla u, v)_{\Omega}
 &=
-\dfrac{1}{2}(\bfb\cdot\nabla u, v)_{\Omega} +
-\dfrac{1}{2}(\bfb\cdot\nabla u, v)_{\Omega} 
+\dfrac{1}{2}(\boldsymbol{b}\cdot\nabla u, v)_{\Omega} +
+\dfrac{1}{2}(\boldsymbol{b}\cdot\nabla u, v)_{\Omega} 
 \\
 &=
-\dfrac{1}{2}(\bfb\cdot\nabla u, v)_{\Omega}
-- \dfrac{1}{2}(u, \bfb\cdot\nabla v)_{\Omega}
-- \dfrac{1}{2}(\nabla\cdot\bfb u, v)_{\Omega}
-+ \dfrac{1}{2}\underbrace{(\bfb\cdot \bfn u, v)_{\partial \Omega}}_{= 0}.
+\dfrac{1}{2}(\boldsymbol{b}\cdot\nabla u, v)_{\Omega}
+- \dfrac{1}{2}(u, \boldsymbol{b}\cdot\nabla v)_{\Omega}
+- \dfrac{1}{2}(\nabla\cdot\boldsymbol{b} u, v)_{\Omega}
++ \dfrac{1}{2}\underbrace{(\boldsymbol{b}\cdot \bfn u, v)_{\partial \Omega}}_{= 0}.
 :::
 Combining this expression with $(c u, v)_{\Omega}$  yields
 :::{math}
-(\bfb\cdot\nabla u, u)_{\Omega} 
+(\boldsymbol{b}\cdot\nabla u, u)_{\Omega} 
 + (c u, u)_{\Omega} 
 = 
-((c - \tfrac{1}{2}\nabla\cdot\bfb) u, u)_{\Omega},
+((c - \tfrac{1}{2}\nabla\cdot\boldsymbol{b}) u, u)_{\Omega},
 :::
 and after recalling our general assumption that
-$c(x) - \tfrac{1}{2}\nabla\cdot\bfb(x) \geqslant c_0 > 0$ for all $x\in \Omega$, 
+$c(x) - \tfrac{1}{2}\nabla\cdot\boldsymbol{b}(x) \geqslant c_0 > 0$ for all $x\in \Omega$, 
 we finally conclude that for all $u\in V$
 :::{math}
 a(u,u) &=
 \epsilon \|\nabla u\|_{\Omega}^2
 + 
-((c - \tfrac{1}{2}\nabla\cdot\bfb) u, u)_{\Omega}
+((c - \tfrac{1}{2}\nabla\cdot\boldsymbol{b}) u, u)_{\Omega}
 \\
 &\geqslant 
 \epsilon \|\nabla u\|_{\Omega}^2
@@ -119,23 +119,23 @@ and applications of the {prf:thm}`Poincare inequality<thm:poincare>` to translat
 To this end we observe that for all $u,v\in V$
 :::{math}
 a(u,v) &= 
-\epsilon(\nabla u, \nabla v)_{\Omega} + (\bfb\cdot\nabla u, v)_{\Omega} + (c u , v)_{\Omega}
+\epsilon(\nabla u, \nabla v)_{\Omega} + (\boldsymbol{b}\cdot\nabla u, v)_{\Omega} + (c u , v)_{\Omega}
 \\
 &\leqslant
 \epsilon \|\nabla u\|_{\Omega} \|\nabla v\|_{\Omega} 
-+ \|\bfb\|_{L^{\infty}(\Omega)}\|\nabla u\|_{\Omega} \|v\|_{\Omega} 
++ \|\boldsymbol{b}\|_{L^{\infty}(\Omega)}\|\nabla u\|_{\Omega} \|v\|_{\Omega} 
 + \|c\|_{L^{\infty}(\Omega)} \|u\|_{\Omega}\|v\|_{\Omega}
 \\
 &\leqslant
 \epsilon \|\nabla u\|_{\Omega} \|\nabla v\|_{\Omega} 
-+ \|\bfb\|_{L^{\infty}(\Omega)}
++ \|\boldsymbol{b}\|_{L^{\infty}(\Omega)}
 \|\nabla u\|_{\Omega} C_P \|\nabla v\|_{\Omega} 
 + \|c\|_{L^{\infty}(\Omega)}
 C_P \|\nabla u\|_{\Omega} C_P \|\nabla v\|_{\Omega}
 \\
 &\leqslant
 \underbrace{
-    ( \epsilon + \|\bfb\|_{L^{\infty}(\Omega)} C_P
+    ( \epsilon + \|\boldsymbol{b}\|_{L^{\infty}(\Omega)} C_P
 + \|c\|_{L^{\infty}(\Omega) C_P^2} )
 }_{C_a} \|\nabla u\|_{\Omega} \|\nabla v\|_{\Omega}.
 :::
